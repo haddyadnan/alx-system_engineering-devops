@@ -1,0 +1,3 @@
+#!/bin/bash
+Water=$((10#$WATER));Stir=$((10#$STIR))
+echo $((bestchol#$(($Water+$Stir))))
