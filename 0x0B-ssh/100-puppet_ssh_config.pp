@@ -1,14 +1,5 @@
-include stdlib
-file_line {'edit Identity':
-  ensure => present,
-  path   => '/etc/ssh/ssh_config',
-  line   => 'IdentityFile ~/.ssh/school',
-  match  => '^IdentityFile'
-}
-
-file_line {'edit PasswordAuth':
-  ensure => present,
-  path   => '/etc/ssh/ssh_config',
-  line   => 'PasswordAuthentication no',
-  match  => '^PasswordAuthentication'
+# Edit config file using puppet
+exec {'edit config':
+  command => 'echo "PasswordAuthentication no" >> /etc/ssh/ssh_config; echo "IdentityFile ~/.ssh/school" >> /etc/ssh/ssh_config'
+  path    => ['/usr/bin', '/usr/sbin']
 }
