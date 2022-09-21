@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Script to install nginx and edit error page
-apt-get -y install nginx
+sudo apgt-get update
+sudo apt-get -y install nginx
 sudo service nginx start
 echo "Ceci n'est pas une page" | sudo tee -a /usr/share/nginx/html/error_404.html > /dev/null
 sed -i '\error_page 404 /error_404.html;' /etc/nginx/sites-available/default

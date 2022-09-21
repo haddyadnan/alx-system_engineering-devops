@@ -23,13 +23,13 @@ service {'nginx':
 }
 
 exec {'configure page':
-  command => 'echo "Hello World!" | sudo tee -a /usr/share/nginx/html/index.html > /dev/null',
+  command => 'echo "Hello World!" | sudo tee -a /var/www/html/index.html> /dev/null',
    path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ]
 }
 
 
 exec {'redirection':
-   command => 'sed -i "rewrite ^/redirect_me http://intellisoftware.tech permanent;" /etc/nginx/sites-available/default',
+   command => 'sed -i "rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default',
   path    =>  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ]
 }
 
