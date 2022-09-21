@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Script to install nginx and edit welcome page
-sudo ap-get update
+sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo service nginx start
-echo "Hello World!" | sudo tee -a  /usr/share/nginx/html/index.html > /dev/null
+echo "Hello World!" | sudo tee -a  /var/www/html/index.html > /dev/null
