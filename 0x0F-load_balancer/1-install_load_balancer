@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Configure HAproxy so that it send traffic to web-01 and web-02
+# Distribute requests using a roundrobin algorithm
+# Make sure that HAproxy can be managed via an init script
+# Make sure that your servers are configured with the right hostnames: [STUDENT_ID]-web-01 and [STUDENT_ID]-web-02. If not, follow this tutorial.
+# A Bash script that configures a new Ubuntu machine to respect above requirements
+
+sudo apt-get -y  update
+sudo apt-get -y upgrade
+sudo apt-get install haproxy
+sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+
+sudo cp /etc/haproxy/haproxy.cfg $/etc/haproxy/haproxy.cfg.copy
+
+sudo sed -i -e '$a\listen appname 0.0.0.0:80\n\tmode http\n\tstats enable' /etc/haproxy/haproxy.cfg
+sudo sed -i -e '$a\\tbalance roundrobin\n\toption httpclose\n\toption forwardfor' /etc/haproxy/haproxy.cfg
+sudo sed -i -e '$a\\tserver 6427-web-01 3.238.197.104:80\n\tserver 6427-web-02 3.238.204.66:80' /etc/haproxy/haproxy.cfg
+
+sudo service haproxy start
