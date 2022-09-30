@@ -46,5 +46,6 @@ frontend https
 
 backend mybackend
   redirect scheme https if !{ ssl_fc }
-  server 6427-web-01 3.238.197.104:443 check
-  server 6427-web-02 3.238.204.66:443 check
+  balance roundrobin
+  server 6427-web-01 3.238.197.104:443 check maxconn 20 ssl
+  server 6427-web-02 3.238.204.66:443 check maxconn 20 ssl
