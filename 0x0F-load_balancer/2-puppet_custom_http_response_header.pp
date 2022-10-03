@@ -10,7 +10,7 @@ package {'install nginx':
 }
 
 exec {'Add custom header':
-  command => 'sudo sed -i "17i\add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf',
+  command => 'sudo sed -i "17i\        add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf',
   path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ]
 }
 
