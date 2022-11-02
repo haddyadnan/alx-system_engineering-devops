@@ -7,6 +7,7 @@ listed for a given subreddit.
 
 import requests
 
+
 def top_ten(subreddit):
     """
     Query reddit API to fetch top 10 hot posts
@@ -16,14 +17,18 @@ def top_ten(subreddit):
     """
 
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/102.0.0.0 Safari/537.36'}
-    params = {'limit': 10}
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+         Chrome/102.0.0.0 Safari/537.36"
+    }
+    params = {"limit": 10}
 
     try:
-        response = requests.get(url, headers=headers, allow_redirects=False,
-                            params=params).json()
+        response = requests.get(
+            url, headers=headers, allow_redirects=False, params=params
+        ).json()
         posts = response.get("data").get("children")
         for post in posts:
-            print(post.get("data").get('title'))
+            print(post.get("data").get("title"))
     except Exception as e:
-        print (e)
+        print(e)
