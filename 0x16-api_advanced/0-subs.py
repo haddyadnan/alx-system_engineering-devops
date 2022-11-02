@@ -8,20 +8,20 @@ the function will return 0.
 """
 
 
+import requests
+
+
 def number_of_subscribers(subreddit):
     """
     Query reddit API to fetch number of subscribers
     subreddit: subreddit name
     Return: Number of subscribers or 0 if invalid subreddit
     """
-    import requests
-
 
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
 
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
-         Chrome/102.0.0.0 Safari/537.36"
+        "User-Agent": "Custom"
     }
     response = requests.get(url, allow_redirects=False, headers=headers)
     if response.status_code == 200:
