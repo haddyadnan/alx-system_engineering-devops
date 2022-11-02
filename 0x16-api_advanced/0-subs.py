@@ -6,7 +6,6 @@ the number of subscribers (not active users, total subscribers)
 for a given subreddit. If an invalid subreddit is given
 the function will return 0.
 """
-import requests
 
 
 def number_of_subscribers(subreddit):
@@ -15,6 +14,8 @@ def number_of_subscribers(subreddit):
     subreddit: subreddit name
     Return: Number of subscribers or 0 if invalid subreddit
     """
+    import requests
+
 
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
 
