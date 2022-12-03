@@ -26,6 +26,6 @@ if __name__ == "__main__":
         if response["completed"] is True:
             done += 1
             title.append(response["title"])
-    print(f"Employee {name} is done with tasks ({done}/{len(responses)}):")
+    print("Employee {} is done with tasks ({}/{}):".format(name, done, len(responses)))
     for t in title:
         print(" \t", t)
