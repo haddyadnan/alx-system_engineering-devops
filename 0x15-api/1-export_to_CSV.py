@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" REST API """
+
+"""
+script to export api data in the CSV format.
+"""
 
 import csv
 import sys

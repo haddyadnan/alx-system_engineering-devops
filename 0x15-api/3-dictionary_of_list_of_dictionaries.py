@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" REST API """
+
+"""
+script to export api data in the JSON format.
+"""
 
 import json
 
@@ -17,15 +20,16 @@ if __name__ == "__main__":
     dict_of_list = {}
     for i in range(len(todos)):
         todo_list = []
-        username = requests.get(user_url + str(todos[i].get("userId"))).json()['username']
+        username = requests.get(user_url + str(todos[i].get("userId"))).json()[
+            "username"
+        ]
         for r in todos:
             todo_dict = {}
             todo_dict["username"] = username
-            todo_dict["task"] = r.get('title')
-            todo_dict["completed"] = r.get('completed')
+            todo_dict["task"] = r.get("title")
+            todo_dict["completed"] = r.get("completed")
             todo_list.append(todo_dict)
-        dict_of_list[todos[i].get('userId')] = todo_list
+        dict_of_list[todos[i].get("userId")] = todo_list
 
-
-    with open(f"todo_all_employees.json", 'w') as f:
+    with open(f"todo_all_employees.json", "w") as f:
         json.dump(dict_of_list, f)

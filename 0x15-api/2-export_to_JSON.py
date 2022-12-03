@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" REST API """
+
+"""
+script to export api data in the JSON format.
+"""
 
 import json
 import sys
@@ -20,13 +23,13 @@ if __name__ == "__main__":
     todo_list = []
     for r in responses:
         todo_dict = {}
-        todo_dict["task"] = r.get('title')
-        todo_dict["completed"] = r.get('completed')
+        todo_dict["task"] = r.get("title")
+        todo_dict["completed"] = r.get("completed")
         todo_dict["username"] = username
         todo_list.append(todo_dict)
 
     json_dict = {}
     json_dict[ID] = todo_list
 
-    with open(f"{ID}.json", 'w') as f:
+    with open(f"{ID}.json", "w") as f:
         json.dump(json_dict, f)
