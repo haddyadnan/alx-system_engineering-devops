@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     responses = requests.get(url=todos_url).json()
 
-    with open(f"{ID}.csv", "w", newline="") as f:
+    with open("{}.csv".format(ID), "w", newline="") as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for response in responses:
             writer.writerow(

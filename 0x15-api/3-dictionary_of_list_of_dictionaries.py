@@ -30,5 +30,5 @@ if __name__ == "__main__":
             todo_list.append(todo_dict)
         dict_of_list[todos[i].get("userId")] = todo_list
 
-    with open(f"todo_all_employees.json", "w") as f:
+    with open("todo_all_employees.json", "w") as f:
         json.dump(dict_of_list, f)

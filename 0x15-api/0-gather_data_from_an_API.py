@@ -27,6 +27,6 @@ if __name__ == "__main__":
             done += 1
             title.append(response["title"])
     n_todo = len(responses)
-    print("Employee {} is done with tasks ({}/{}):".format(name, done, n_todo))
+    print("Employee {} is done with tasks({}/{}):".format(name, done, n_todo))
     for t in title:
         print("\t ", t)
