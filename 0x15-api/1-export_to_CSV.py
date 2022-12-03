@@ -5,16 +5,18 @@ script to export api data in the CSV format.
 """
 
 import csv
-import sys
 
 import requests
+
+import sys
 
 if __name__ == "__main__":
 
     ID = sys.argv[1]
 
-    user_url = "https://jsonplaceholder.typicode.com/users/{}".format(ID)
-    todos_url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(ID)
+    url = "https://jsonplaceholder.typicode.com"
+    user_url = url + "/users/{}".format(ID)
+    todos_url = url + "/todos?userId={}".format(ID)
 
     username = requests.get(url=user_url).json()["username"]
 

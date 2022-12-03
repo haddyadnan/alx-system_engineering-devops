@@ -2,6 +2,7 @@
 
 """
 script to export api data in the JSON format.
+dict of list of dicts
 """
 
 import json
@@ -12,8 +13,6 @@ if __name__ == "__main__":
 
     user_url = "https://jsonplaceholder.typicode.com/users/"
     todos_url = "https://jsonplaceholder.typicode.com/todos/"
-
-    # username = requests.get(url=user_url).json()["username"]
 
     todos = requests.get(url=todos_url).json()
 
