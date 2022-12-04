@@ -33,5 +33,5 @@ if __name__ == "__main__":
 
         dict_of_list[todos[i].get("userId")] = todo_list
 
-    with open("todo_all_employees2.json", "w") as f:
+    with open("todo_all_employees.json", "w") as f:
         json.dump(dict_of_list, f)
