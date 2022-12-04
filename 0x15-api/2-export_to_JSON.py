@@ -32,5 +32,5 @@ if __name__ == "__main__":
     json_dict = {}
     json_dict[ID] = todo_list
 
-    with open(f"{ID}.json", "w") as f:
+    with open("{}.json".format(ID), "w") as f:
         json.dump(json_dict, f)

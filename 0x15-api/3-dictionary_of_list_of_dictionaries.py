@@ -22,13 +22,16 @@ if __name__ == "__main__":
         username = requests.get(user_url + str(todos[i].get("userId"))).json()[
             "username"
         ]
+
         for r in todos:
-            todo_dict = {}
-            todo_dict["username"] = username
-            todo_dict["task"] = r.get("title")
-            todo_dict["completed"] = r.get("completed")
-            todo_list.append(todo_dict)
+            if todos[i].get("userId") == r.get("userId"):
+                todo_dict = {}
+                todo_dict["username"] = username
+                todo_dict["task"] = r.get("title")
+                todo_dict["completed"] = r.get("completed")
+                todo_list.append(todo_dict)
+
         dict_of_list[todos[i].get("userId")] = todo_list
 
-    with open("todo_all_employees.json", "w") as f:
+    with open("todo_all_employees2.json", "w") as f:
         json.dump(dict_of_list, f)
